@@ -18,7 +18,7 @@ public class MemberCRUDService {
         this.memberRepository = memberRepository;
     }
 
-    public Member createMember(@Valid MemberCreateRequestDto requestDto) {
+    public Member createMember(MemberCreateRequestDto requestDto) {
         Member member = Member.builder()
                 .username(requestDto.getUsername())
                 .password(requestDto.getPassword())
