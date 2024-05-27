@@ -17,8 +17,8 @@ public class MemberCRUDController {
         this.memberCRUDService = memberCRUDService;
     }
 
-    @GetMapping("/member")
-    public ResponseEntity TestMember(@RequestBody @Valid MemberCreateRequestDto requestDto) {
+    @PostMapping("/member")
+    public ResponseEntity<?> TestMember(@RequestBody @Valid MemberCreateRequestDto requestDto) {
         return ResponseEntity.ok(memberCRUDService.TestCRUDMethod(requestDto));
     }
 }

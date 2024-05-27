@@ -14,7 +14,7 @@ public class MemberCreateRequestDto {
     private static final String EMAIL_VALID = "올바른 이메일 주소를 입력해야 합니다.";
     private static final String PASSWORD_IS_REQUIRED = "비밀번호를 필수로 입력해야 합니다.";
     private static final String PASSWORD_LENGTH = "비밀번호는 8자 이상, 24자 이하로 입력해야 합니다.";
-    private static final String PASSWORD_PATTERN = "비밀번호는 대문자, 소문자, 숫자, 특수문자를 최소한 하나씩 포함해야 합니다.";
+    private static final String PASSWORD_PATTERN = "비밀번호는 영문 대소문자 + 숫자를 최소한 하나씩 포함해야 합니다.";
 
     @NotBlank(message = USERNAME_IS_REQUIRED)
     @Size(min = 2, max = 16, message = USERNAME_LENGTH)
@@ -27,7 +27,7 @@ public class MemberCreateRequestDto {
     @NotBlank(message = PASSWORD_IS_REQUIRED)
     @Size(min = 8, max = 24, message = PASSWORD_LENGTH)
     @Pattern(
-            regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&#])[A-Za-z\\d@$!%*?&#]{8,24}$",
+            regexp = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,24}$",
             message = PASSWORD_PATTERN
     )
     private final String password;
