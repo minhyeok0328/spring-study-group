@@ -1,6 +1,7 @@
 package com.minhyeok.study.member.controller;
 
 import com.minhyeok.study.member.application.MemberCRUDService;
+import com.minhyeok.study.member.domain.Member;
 import com.minhyeok.study.member.dto.MemberCreateRequestDto;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,14 @@ public class MemberCRUDController {
         this.memberCRUDService = memberCRUDService;
     }
 
-    @PostMapping("/member")
+    @PostMapping("/member-test")
     public ResponseEntity<?> TestMember(@RequestBody @Valid MemberCreateRequestDto requestDto) {
-        return ResponseEntity.ok(memberCRUDService.TestCRUDMethod(requestDto));
+        return ResponseEntity.ok(memberCRUDService.TestCRUDMethod("user"));
     }
+
+    @PostMapping("/member")
+    public ResponseEntity<?> createMember(@RequestBody @Valid MemberCreateRequestDto requestDto) {
+        return ResponseEntity.ok(memberCRUDService.createMember(requestDto));
+    }
+
 }

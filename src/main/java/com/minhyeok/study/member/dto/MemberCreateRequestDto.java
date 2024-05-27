@@ -7,6 +7,10 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 
 @Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class MemberCreateRequestDto {
     private static final String USERNAME_IS_REQUIRED = "회원 이름을 필수로 입력해야 합니다.";
     private static final String USERNAME_LENGTH = "회원 이름은 2자 이상 16자 이하이어야 합니다.";
@@ -18,11 +22,11 @@ public class MemberCreateRequestDto {
 
     @NotBlank(message = USERNAME_IS_REQUIRED)
     @Size(min = 2, max = 16, message = USERNAME_LENGTH)
-    private final String username;
+    private String username;
 
     @NotBlank(message = EMAIL_IS_REQUIRED)
     @Email(message = EMAIL_VALID)
-    private final String email;
+    private String email;
 
     @NotBlank(message = PASSWORD_IS_REQUIRED)
     @Size(min = 8, max = 24, message = PASSWORD_LENGTH)
@@ -30,15 +34,5 @@ public class MemberCreateRequestDto {
             regexp = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,24}$",
             message = PASSWORD_PATTERN
     )
-    private final String password;
-
-    @Builder
-    public MemberCreateRequestDto(
-                                    final String username,
-                                    final String email,
-                                    final String password) {
-        this.username = username;
-        this.email = email;
-        this.password = password;
-    }
+    private String password;
 }
