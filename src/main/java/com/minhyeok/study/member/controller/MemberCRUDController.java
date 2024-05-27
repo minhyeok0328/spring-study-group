@@ -1,6 +1,8 @@
 package com.minhyeok.study.member.controller;
 
 import com.minhyeok.study.member.application.MemberCRUDService;
+import com.minhyeok.study.member.dto.MemberCreateRequestDto;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +18,7 @@ public class MemberCRUDController {
     }
 
     @GetMapping("/member")
-    public ResponseEntity TestMember() {
-        return ResponseEntity.ok(memberCRUDService.TestCRUDMethod());
+    public ResponseEntity TestMember(@RequestBody @Valid MemberCreateRequestDto requestDto) {
+        return ResponseEntity.ok(memberCRUDService.TestCRUDMethod(requestDto));
     }
 }

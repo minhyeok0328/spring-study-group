@@ -7,7 +7,6 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 
 @Getter
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class MemberCreateRequestDto {
     private static final String USERNAME_IS_REQUIRED = "회원 이름을 필수로 입력해야 합니다.";
     private static final String USERNAME_LENGTH = "회원 이름은 2자 이상 16자 이하이어야 합니다.";
@@ -34,7 +33,10 @@ public class MemberCreateRequestDto {
     private final String password;
 
     @Builder
-    public MemberCreateRequestDto(String username, String email, String password) {
+    public MemberCreateRequestDto(
+                                    final String username,
+                                    final String email,
+                                    final String password) {
         this.username = username;
         this.email = email;
         this.password = password;

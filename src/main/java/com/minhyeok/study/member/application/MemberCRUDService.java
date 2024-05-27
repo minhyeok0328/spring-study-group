@@ -1,5 +1,7 @@
 package com.minhyeok.study.member.application;
 
+import com.minhyeok.study.member.dto.MemberCreateRequestDto;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +14,7 @@ public class MemberCRUDService {
         this.memberService = memberService;
     }
 
-    public String TestCRUDMethod() {
+    public String TestCRUDMethod(@Valid MemberCreateRequestDto requestDto) {
         return memberService.TestMethod();
     }
 }
