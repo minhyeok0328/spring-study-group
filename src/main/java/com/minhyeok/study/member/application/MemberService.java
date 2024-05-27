@@ -1,4 +1,4 @@
-package com.minhyeok.study.member.app;
+package com.minhyeok.study.member.application;
 
 import org.springframework.stereotype.Service;
 
